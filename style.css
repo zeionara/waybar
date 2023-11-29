@@ -212,6 +212,12 @@ label:focus {
     min-width: 100px;
 }
 
+#custom-wf-recorder {
+    color: red;
+    font-weight: bold;
+    padding: 0 5px;
+}
+
 #custom-media.custom-spotify {
     background-color: #66cc99;
 }

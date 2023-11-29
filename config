@@ -6,7 +6,7 @@
     "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
     // "modules-left": ["hyprland/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
-    "modules-left": ["hyprland/window"],
+    "modules-left": ["hyprland/window", "custom/wf-recorder"],
     // "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "temperature", "backlight", "keyboard-state", "hyprland/language", "battery", "battery#bat2", "clock", "tray"],
     "modules-right": ["cpu", "memory", "pulseaudio", "network", "backlight", "hyprland/language", "clock", "battery"],
     // Modules configuration
@@ -85,7 +85,7 @@
     "clock": {
         // "timezone": "America/New_York",
         "interval": 1,
-        "format": "{:%H:%m:%S %d-%m-%Y}",
+        "format": "{:%H:%M:%S %d-%m-%Y}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },
@@ -166,6 +166,13 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/wf-recorder": {
+        "format": "\ueba7",
+        "return-type": "json",
+        "interval": 1,
+        "exec": "echo '{\"class\": \"recording\"}'",
+        "exec-if": "pgrep wf-recorder"
     }
 }
 
