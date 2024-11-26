@@ -8,7 +8,7 @@
     // "modules-left": ["hyprland/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
     "modules-left": ["hyprland/window", "custom/wf-recorder"],
     // "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "temperature", "backlight", "keyboard-state", "hyprland/language", "battery", "battery#bat2", "clock", "tray"],
-    "modules-right": ["cpu", "memory", "pulseaudio", "network", "backlight", "hyprland/language", "clock", "battery"],
+    "modules-right": ["custom/amnezia", "cpu", "memory", "pulseaudio", "network", "backlight", "hyprland/language", "clock", "battery"],
     // Modules configuration
     // "hyprland/workspaces": {
     //     "disable-scroll": true,
@@ -130,7 +130,8 @@
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         // "format-wifi": "{essid} ({signalStrength}%) ",
         "format-wifi": "{ifname} {ipaddr}",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        // "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-ethernet": "{ifname} {ipaddr}",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
@@ -173,6 +174,11 @@
         "interval": 1,
         "exec": "echo '{\"class\": \"recording\"}'",
         "exec-if": "pgrep wf-recorder"
+    },
+    "custom/amnezia": {
+        "exec": "sudo awg | grep transfer | awk '{print $2, $3, \"\ueac2\", $5, $6, \"\ueac3\"}'",
+        "format": "{}",
+        "interval": 2
     }
 }
 
