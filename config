@@ -8,7 +8,7 @@
     // "modules-left": ["hyprland/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
     "modules-left": ["hyprland/window", "custom/wf-recorder"],
     // "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "temperature", "backlight", "keyboard-state", "hyprland/language", "battery", "battery#bat2", "clock", "tray"],
-    "modules-right": ["custom/amnezia", "cpu", "memory", "pulseaudio", "network", "backlight", "hyprland/language", "clock", "battery"],
+    "modules-right": ["custom/mihomo", "custom/amnezia", "cpu", "memory", "pulseaudio", "network", "backlight", "hyprland/language", "clock", "battery"],
     // Modules configuration
     // "hyprland/workspaces": {
     //     "disable-scroll": true,
@@ -176,7 +176,13 @@
         "exec-if": "pgrep wf-recorder"
     },
     "custom/amnezia": {
-        "exec": "sudo awg | grep transfer | awk '{print $2, $3, \"\ueac2\", $5, $6, \"\ueac3\"}'",
+        "exec": "sudo awg | grep transfer | awk '{print $2, $3, \"\ueac2 \", $5, $6, \"\ueac3\"}'",
+        "format": "{}",
+        "interval": 2
+    },
+    "custom/mihomo": {
+        "exec": "echo 'mihomo connected'",
+        "exec-if": "pgrep mihomo",
         "format": "{}",
         "interval": 2
     }
